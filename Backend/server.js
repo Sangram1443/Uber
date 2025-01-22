@@ -1,6 +1,10 @@
 const http = require('http');
-const app = require('./server.js');
-const port = process.env.PORT || 4000;
+require('dotenv').config();
+const app = require('./app.js');
+const port = 3000;
+const dbConnect = require('./database/db.js');
+
+dbConnect();
 
 const server = http.createServer(app);
 server.listen(port, () => {
