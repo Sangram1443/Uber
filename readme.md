@@ -7,6 +7,8 @@ This API provides user authentication functionality, including user registration
 - [Endpoints](#endpoints)
   - [Register User](#register-user)
   - [Login User](#login-user)
+  - [Logout User](#logout-user)
+  - [User Profile](#user-profile)
 - [Error Handling](#error-handling)
 
 ---
@@ -102,7 +104,7 @@ Authenticates the JWT_token and token is blacklisted(added to the BlacklistedTok
     "Logged out successfully"
   }
 
-### Profile
+### User Profile
 Authenticates the JWT token sent by the login route by checking if it is present in the BlacklistedToken database. If not blacklisted then shows the profile for the user.
 - **URL**: `/users/profile`
 - **Method**: `GET`
