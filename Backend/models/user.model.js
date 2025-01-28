@@ -39,7 +39,7 @@ userSchema.methods.generateAuthToken = async function () {
 	return token;
 };
 
-userSchema.comparePassword = async function (password) {
+userSchema.methods.comparePassword = async function (password) {
 	return await bycrypt.compare(password, this.password);
 };
 
@@ -47,5 +47,5 @@ userSchema.statics.hashPassword = async function (password) {
 	return await bycrypt.hash(password, 10);
 };
 
-const userModel = mongoose.model("User", userSchema);
+const userModel = mongoose.model("User", userSchema); // users will be the collection name in the database
 module.exports = userModel;
