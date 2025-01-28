@@ -7,12 +7,7 @@ This API provides user authentication functionality, including user registration
 - [Endpoints](#endpoints)
   - [Register User](#register-user)
   - [Login User](#login-user)
-- [Request and Response Examples](#request-and-response-examples)
-  - [Register User](#register-user-example)
-  - [Login User](#login-user-example)
 - [Error Handling](#error-handling)
-- [Dependencies](#dependencies)
-- [Environment Variables](#environment-variables)
 
 ---
 
