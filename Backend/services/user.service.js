@@ -1,4 +1,5 @@
 const userModel = require("../models/user.model");
+const BlacklistedToken = require("../models/blackListedToken.model");
 
 module.exports.createUser = async ({ firstname, lastname, email, password }) => {
   if (!firstname || !email || !password) {
@@ -21,4 +22,14 @@ module.exports.createUser = async ({ firstname, lastname, email, password }) => 
   });
 
   return user;
+};
+
+module.exports.blacklistToken = async (token) => {
+  if (!token) {
+    throw new Error("Token is required");
+  }
+
+  const blacklistedToken = await BlacklistedToken.create({ token });
+
+  return blacklistedToken;
 };

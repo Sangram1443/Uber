@@ -65,7 +65,12 @@ Authenticates a user and returns a JWT token.
     "password": "password123"
   }
   ```
- 
+### Validation:
+
+email: Must be a valid email address & must be present in the database  
+password: Must match with the password of the corresponding email.
+
+
 - **Response:**
   **Success:**
   ```json
@@ -80,6 +85,38 @@ Authenticates a user and returns a JWT token.
             "email": "john.doe@example.com",
             "socketId": null
         }
+    }
+### Logout User
+Authenticates the JWT_token and token is blacklisted(added to the BlacklistedToken database).
+- **URL**: `/users/logout`
+- **Method**: `POST`
+- **Request Header**:
+    -Authorization: Bearer JWT_token
+### Validation:
+- The JWT_token must not be blacklisted already and must be valid.
+
+- **Response:**
+  **Success:**
+  ```json
+  {
+    "Logged out successfully"
+  }
+
+### Profile
+Authenticates the JWT token sent by the login route by checking if it is present in the BlacklistedToken database. If not blacklisted then shows the profile for the user.
+- **URL**: `/users/profile`
+- **Method**: `GET`
+- **Request Header**:
+    -Authorization: Bearer JWT_token
+  
+### Validation:
+The token must not be blacklisted.
+
+- **Response:**
+  **Success:**
+  ```json
+    {
+      User Profile
     }
 
 ### Error Handling
