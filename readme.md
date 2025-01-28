@@ -72,13 +72,13 @@ Authenticates a user and returns a JWT token.
     {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
         "user": {
-        "_id": "64f1b2c3e4b0f5a3d4f5e6g7",
-        "fullname": {
-        "firstname": "John",
-        "lastname": "Doe"
-        },
-        "email": "john.doe@example.com",
-        "socketId": null
+            "_id": "64f1b2c3e4b0f5a3d4f5e6g7",
+            "fullname": {
+                "firstname": "John",
+                "lastname": "Doe"
+            },
+            "email": "john.doe@example.com",
+            "socketId": null
         }
     }
 
