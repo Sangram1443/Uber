@@ -38,8 +38,8 @@ Registers a new user in the system.
 
 ### Validation:
 
-fullname.firstname: Must be at least 3 characters long.
-email: Must be a valid email address.
+fullname.firstname: Must be at least 3 characters long.  
+email: Must be a valid email address.  
 password: Must be at least 6 characters long.
 
 - **Response:**
