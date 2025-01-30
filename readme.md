@@ -118,7 +118,7 @@ The token must not be blacklisted.
   **Success:**
   ```json
     {
-      User Profile
+      "User Profile"
     }
 
 ### Error Handling

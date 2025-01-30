@@ -17,5 +17,5 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', userRoutes); // Use the user routes for any routes starting with /users
-
+app.use('/captains', require('./routes/captain.routes')); // Use the captain routes for any routes starting with /captains  
 module.exports = app;
