@@ -1,4 +1,5 @@
 const captainModel = require("../models/captain.model");
+const BlacklistedToken = require("../models/blackListedToken.model");
 
 module.exports.createCaptain = async ({
   fullname: { firstname, lastname },
@@ -54,4 +55,12 @@ module.exports.createCaptain = async ({
   });
 
   return captain;
-};
+}; // Create captain service
+
+module.exports.blacklistToken = async (token) => {
+  if (!token) {
+    throw new Error("Token is required");
+  }
+
+  await BlacklistedToken.create({ token });
+}; // Blacklist token service

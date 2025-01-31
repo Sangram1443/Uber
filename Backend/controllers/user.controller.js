@@ -23,7 +23,7 @@ module.exports.registerUser = async (req, res, next) => {
 	} catch (error) {
 		res.status(400).json({ message: error.message });
 	}
-};
+}; // Register user controller
 
 module.exports.loginUser = async (req, res, next) => {
 	const errors = validationResult(req);
@@ -41,7 +41,7 @@ module.exports.loginUser = async (req, res, next) => {
 	}
 	const token = await user.generateAuthToken();
 	res.status(201).json({ token, user });
-};
+}; // Login user controller
 
 module.exports.logoutUser = async (req, res, next) => {
 	const token = req.header("Authorization")?.split(" ")[1] || req.cookies.token;
@@ -52,7 +52,7 @@ module.exports.logoutUser = async (req, res, next) => {
 	} catch (error) {
 		return res.status(500).json({ message: error.message });
 	}
-};
+}; // Logout user controller
 
 module.exports.getUserProfile = async (req, res, next) => {
 	try {
@@ -64,4 +64,4 @@ module.exports.getUserProfile = async (req, res, next) => {
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}
-};
+}; // Get user profile controller

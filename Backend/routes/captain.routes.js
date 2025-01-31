@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const captainController = require("../controllers/captain.controller");
 const { body } = require("express-validator");
+const captainAuthMiddleware = require("../middlewares/captainAuth.middleware");
 
 router.post(
 	"/register",
@@ -28,8 +29,12 @@ router.post(
 			.withMessage("Number plate should be atleast 5 characters long"),
 	],
 	captainController.registerCaptain
-); // Express Validator middleware to validate the request body fields before calling the registerCaptain controller method
+); // Register route
 
+router.post("/login",captainController.loginCaptain); // Login route
 
+router.post("/logout",captainAuthMiddleware,captainController.logoutCaptain); // Logout route
+
+router.get("/profile",captainAuthMiddleware,captainController.getProfile); // Get profile route
 
 module.exports = router;

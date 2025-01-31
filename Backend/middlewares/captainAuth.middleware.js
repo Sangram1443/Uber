@@ -1,4 +1,4 @@
-const userModel = require("../models/user.model");
+const captainModel = require("../models/captain.model");
 const BlacklistedToken = require("../models/blackListedToken.model");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -14,11 +14,11 @@ module.exports = async (req, res, next) => {
 	}
 	try {
 		const decoded = jwt.verify(token, process.env.JWT_SECRET);
-		const user = await userModel.findById(decoded._id);
-		if (!user) {
+		const captain = await captainModel.findById(decoded._id);
+		if (!captain) {
 			return res.status(401).json({ message: "Unauthorized" });
 		}
-		req.user = user;
+		req.captain = captain;
         next();
 	} catch (error) {
 		res.status(401).json({ message: error });

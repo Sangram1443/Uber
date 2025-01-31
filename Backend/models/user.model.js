@@ -47,5 +47,11 @@ userSchema.statics.hashPassword = async function (password) {
 	return await bycrypt.hash(password, 10);
 };
 
+userSchema.methods.toJSON = function () {
+	const user = this.toObject();
+	delete user.password;
+	return user;
+}; // Remove password field from the response
+
 const userModel = mongoose.model("User", userSchema); // users will be the collection name in the database
 module.exports = userModel;

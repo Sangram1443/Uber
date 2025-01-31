@@ -22,7 +22,7 @@ module.exports.createUser = async ({ firstname, lastname, email, password }) => 
   });
 
   return user;
-};
+}; // Create user service
 
 module.exports.blacklistToken = async (token) => {
   if (!token) {
@@ -32,4 +32,4 @@ module.exports.blacklistToken = async (token) => {
   const blacklistedToken = await BlacklistedToken.create({ token });
 
   return blacklistedToken;
-};
+}; // Blacklist token service
