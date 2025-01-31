@@ -9,6 +9,10 @@ This API provides user authentication functionality, including user registration
   - [Login User](#login-user)
   - [Logout User](#logout-user)
   - [User Profile](#user-profile)
+  - [Register Captain](#register-captain)
+  - [Login Captain](#login-captain)
+  - [Logout Captain](#logout-captain)
+  - [Captain Profile](#captain-profile)
 - [Error Handling](#error-handling)
 
 ---
