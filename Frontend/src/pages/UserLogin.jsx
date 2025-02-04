@@ -53,12 +53,12 @@ const UserLogin = () => {
 							required
 						/>
 						<button className="w-full mt-5 bg-[#000000] text-white py-2 rounded-md text-lg hover:bg-[#000000]">
-							Login
+							Login as User
 						</button>
 					</form>
 					<p className="text-base py-2 px-2">
 						Are you new here?
-						<Link to={"/user-signup"} className="text-blue-700 pl-2">
+						<Link to={"/user-signup"} className="text-sky-500 pl-2">
 							Create your account
 						</Link>
 					</p>

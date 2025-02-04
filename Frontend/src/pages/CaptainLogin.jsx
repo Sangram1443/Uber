@@ -67,7 +67,7 @@ const CaptainLogin = () => {
 					</form>
 					<p className="text-base py-2 px-2">
 						Are you new here?
-						<Link to={"/captain-signup"} className="text-blue-700 pl-2">
+						<Link to={"/captain-signup"} className="text-sky-500 pl-2">
 							Register as Captain
 						</Link>
 					</p>
