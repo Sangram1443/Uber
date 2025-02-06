@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Home = () => {
+const Start = () => {
 	return (
-		<>
+		<>	
 			<div className="justify-between flex flex-col h-screen">
 				<div className="bg-cover bg-top bg-[url(https://imgs.search.brave.com/y5j7nSocPX47QnP6CTa0mocRWhw9rWE3COvm2q9g5vc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by90cmFmZmljLWxp/Z2h0LWdyZWVuLXJv/YWQtc2lnbmFsLXll/bGxvdy10cmFmZmlj/bGlnaHQtcm9hZHdh/eS1jbG91ZC1iYWNr/Z3JvdW5kLWNvbG9y/ZnVsLWdvLXdhcm5p/bmctc2lnbl84MzE5/NC0xMjcyLmpwZz9z/ZW10PWFpc19oeWJy/aWQ)] h-screen">
 					<img
@@ -42,4 +42,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Start;

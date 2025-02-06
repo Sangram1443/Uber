@@ -140,7 +140,7 @@ const CaptainSignup = () => {
 						required
 					/>
 					{error && <p className="text-red-500">{error}</p>}
-					<button className="w-full mt-5 bg-[#000000] text-white py-2 rounded-md text-lg hover:bg-[#000000]">
+					<button className="w-full mt-5 bg-emerald-600 text-white py-2 rounded-md text-lg hover:bg-[#000000]">
 						Sign Up
 					</button>
 				</form>
