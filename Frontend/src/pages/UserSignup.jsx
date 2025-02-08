@@ -25,7 +25,6 @@ const UserSignup = () => {
 			return;
 		}
 		setError("");
-		console.log(formData);
 	};
 
 	return (
@@ -37,25 +36,31 @@ const UserSignup = () => {
 					alt="uber logo"
 				/>
 				<form className="mt-7" onSubmit={handleSubmit}>
-					<h3 className="text-2xl p-2 font-serif">First Name</h3>
-					<input
-						className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
-						type="text"
-						name="firstname"
-						value={formData.firstname}
-						onChange={handleChange}
-						placeholder=""
-						required
-					/>
-					<h3 className="text-2xl p-2 font-serif">Last Name</h3>
-					<input
-						className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
-						type="text"
-						name="lastname"
-						value={formData.lastname}
-						onChange={handleChange}
-						placeholder=""
-					/>
+					<div className="flex flex-row gap-2">
+						<div className="w-1/2">
+							<h3 className="text-2xl py-2 font-serif">First Name</h3>
+							<input
+								className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
+								type="text"
+								name="firstname"
+								value={formData.firstname}
+								onChange={handleChange}
+								placeholder=""
+								required
+							/>
+						</div>
+						<div className="w-1/2">
+							<h3 className="text-2xl py-2 font-serif">Last Name</h3>
+							<input
+								className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
+								type="text"
+								name="lastname"
+								value={formData.lastname}
+								onChange={handleChange}
+								placeholder=""
+							/>
+						</div>
+					</div>
 					<h3 className="text-2xl p-2 font-serif">Email</h3>
 					<input
 						className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
