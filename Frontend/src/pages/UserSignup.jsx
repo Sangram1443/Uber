@@ -61,7 +61,7 @@ const UserSignup = () => {
 							/>
 						</div>
 					</div>
-					<h3 className="text-2xl p-2 font-serif">Email</h3>
+					<h3 className="text-2xl py-2 font-serif">Email</h3>
 					<input
 						className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
 						type="email"
@@ -71,7 +71,7 @@ const UserSignup = () => {
 						placeholder="email@example.com"
 						required
 					/>
-					<h3 className="text-2xl p-2 font-serif">Password</h3>
+					<h3 className="text-2xl py-2 font-serif">Password</h3>
 					<input
 						className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
 						type="password"
@@ -81,7 +81,7 @@ const UserSignup = () => {
 						placeholder="password"
 						required
 					/>
-					<h3 className="text-2xl p-2 font-serif">Confirm Password</h3>
+					<h3 className="text-2xl py-2 font-serif">Confirm Password</h3>
 					<input
 						className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
 						type="password"

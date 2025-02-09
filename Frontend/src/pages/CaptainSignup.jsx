@@ -95,7 +95,7 @@ const CaptainSignup = () => {
 						placeholder=""
 						required
 					/>
-					<div className="flex flex-row gap-2 items-center">
+					<div className="flex flex-row gap-2 items-center py-2">
 						<h3 className="text-2xl py-2 font-serif">Vehicle Type</h3>
 						<div className="flex flex-row gap-2 items-center">
 							<input

@@ -39,7 +39,7 @@ const CaptainLogin = () => {
 						}}
 						className="mt-7"
 					>
-						<h3 className="text-2xl p-2 font-serif">What's your email ?</h3>
+						<h3 className="text-2xl py-2 font-serif">What's your email ?</h3>
 						<input
 							className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
 							type="email"
@@ -50,7 +50,7 @@ const CaptainLogin = () => {
 								setEmail(e.target.value);
 							}}
 						/>
-						<h3 className="text-2xl p-2 font-serif">Your Password</h3>
+						<h3 className="text-2xl py-2 font-serif">Your Password</h3>
 						<input
 							className="w-full py-2 px-3 border rounded-md bg-[#fefefe]"
 							type="password"
