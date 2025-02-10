@@ -106,7 +106,7 @@ const CaptainSignup = () => {
 								checked={formData.vehicleType === "Auto"}
 								onChange={handleChange}
 							/>
-							<label for="auto">Auto</label>
+							<label htmlFor="auto">Auto</label>
 						</div>
 						<div className="flex flex-row gap-2 items-center">
 							<input

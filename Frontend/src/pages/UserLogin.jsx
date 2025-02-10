@@ -1,18 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserDataContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const UserLogin = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [userData, setUserData] = useState({});
+	const navigate = useNavigate();
+	const { user, setUser } = useContext(UserDataContext);
+	const [error, setError] = useState("");
 
-	const submitHandler = (e) => {
+	const submitHandler = async (e) => {
 		e.preventDefault();
-		setUserData({
+		const newUser = {
 			email: email,
 			password: password,
-		});
+		};
 		setEmail("");
 		setPassword("");
+		try {
+			const response = await axios.post(
+				`${import.meta.env.VITE_BASE_URL}/users/login`,
+				newUser
+			);
+			if (response.status === 201) {
+				const data = response.data;
+				setUser(data.user);
+				localStorage.setItem('token',data.token);
+				navigate("/home");
+			} else {
+				setError(error.response?.data?.message || "User not found");
+				return;
+			}
+		} catch (error) {
+			setError(error.response?.data?.message || "User not found");
+			return;
+		}
 	};
 
 	return (
@@ -52,6 +76,7 @@ const UserLogin = () => {
 							}}
 							required
 						/>
+						{error && <p className="text-red-500">{error}</p>}
 						<button className="w-full mt-5 bg-[#000000] text-white py-2 rounded-md text-lg hover:bg-[#000000]">
 							Login as User
 						</button>

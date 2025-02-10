@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { UserDataContext } from "../context/UserContext";
+import { useContext } from "react";
 
 const UserSignup = () => {
+	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
 		firstname: "",
 		lastname: "",
@@ -10,7 +15,7 @@ const UserSignup = () => {
 	});
 
 	const [error, setError] = useState("");
-
+	const { user, setUser } = useContext(UserDataContext);
 	const handleChange = (e) => {
 		setFormData({
 			...formData,
@@ -20,11 +25,46 @@ const UserSignup = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		if (formData.password.length < 6) {
+			setError("Passwords should be atleast 6 characters long");
+			return;
+		}
 		if (formData.password !== formData.confirmPassword) {
 			setError("Passwords do not match");
 			return;
 		}
 		setError("");
+		const newUser = {
+			fullname: {
+				firstname: formData.firstname,
+				lastname: formData.lastname,
+			},
+			email: formData.email,
+			password: formData.password,
+		};
+		setFormData({
+			firstname: "",
+			lastname: "",
+			email: "",
+			password: "",
+			confirmPassword: "",
+		});
+		try {
+			const response = await axios.post(
+				`${import.meta.env.VITE_BASE_URL}/users/register`,
+				newUser
+			);
+			if (response.status === 201) {
+				const data = response.data;
+				setUser(data.user);
+				localStorage.setItem('token',data.token);
+				navigate("/home");
+			} else {
+				setError(error.response?.data?.message || "An error occurred");
+			}
+		} catch (error) {
+			setError(error.response?.data?.message || "An error occurred");
+		}
 	};
 
 	return (

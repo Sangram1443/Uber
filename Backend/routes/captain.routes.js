@@ -33,7 +33,7 @@ router.post(
 
 router.post("/login",captainController.loginCaptain); // Login route
 
-router.post("/logout",captainAuthMiddleware,captainController.logoutCaptain); // Logout route
+router.get("/logout",captainAuthMiddleware,captainController.logoutCaptain); // Logout route
 
 router.get("/profile",captainAuthMiddleware,captainController.getProfile); // Get profile route
 

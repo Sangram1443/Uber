@@ -29,7 +29,7 @@ router.post(
 	userController.loginUser
 ); // Login route
 
-router.post("/logout",userAuthMiddleware, userController.logoutUser); // Logout route	
+router.get("/logout",userAuthMiddleware, userController.logoutUser); // Logout route	
 
 router.get("/profile",userAuthMiddleware, userController.getUserProfile); // Get user profile route
 
