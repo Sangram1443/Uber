@@ -1,20 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { CaptainDataContext } from "../context/CaptainContext";
 
 const CaptainLogin = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [captainData, setCaptainData] = useState({});
-
+	const navigate = useNavigate();
+	const { captain, setCaptain } = useContext(CaptainDataContext);
+	const [error, setError] = useState("");
 	const submitHandler = (e) => {
 		e.preventDefault();
-		setCaptainData({
+		const newCaptain = {
 			email: email,
 			password: password,
-		});
-		setEmail("");
-		setPassword("");
+		};
+		try {
+			axios
+				.post(`${import.meta.env.VITE_BASE_URL}/captains/login`, newCaptain)
+				.then((response) => {
+					if (response.status === 200) {
+						const data = response.data;
+						setCaptain(data.captain);
+						localStorage.setItem("token", data.token);
+						navigate("/captain-home");
+					} else {
+						setError(error.response?.data?.message || "Captain not found");
+						return;
+					}
+				})
+				.catch((error) => {
+					setError(error.response?.data?.message || "Captain not found");
+				});
+			setEmail("");
+			setPassword("");
+		} catch (error) {
+			setError(error.response?.data?.message || "Captain not found");
+		}
 	};
 
 	return (
@@ -61,6 +85,7 @@ const CaptainLogin = () => {
 							}}
 							required
 						/>
+						<p className="text-red-600">{error}</p>
 						<button className="w-full mt-5 bg-emerald-600 text-white py-2 rounded-md text-lg hover:bg-[#000000]">
 							Login as Captain
 						</button>

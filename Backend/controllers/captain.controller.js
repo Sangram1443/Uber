@@ -33,7 +33,7 @@ module.exports.registerCaptain = async (req, res) => {
 			numberPlate,
 		});
 		const token = await captain.generateAuthToken();
-		res.status(201).json({ token, captain : captain.toJSON() });
+		res.status(200).json({ token, captain : captain.toJSON() });
 	} catch (error) {
 		res.status(400).json({ message: error.message });
 	}

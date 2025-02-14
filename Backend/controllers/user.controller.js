@@ -19,7 +19,7 @@ module.exports.registerUser = async (req, res, next) => {
     });
 
     const token = await user.generateAuthToken();
-    res.status(201).json({ token, user });
+    res.status(200).json({ token, user });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -60,7 +60,7 @@ module.exports.getUserProfile = async (req, res, next) => {
 		if (!user) {
 			return res.status(404).json({ message: "User not found" });
 		}
-		res.status(201).json(user);
+		res.status(200).json(user);
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}

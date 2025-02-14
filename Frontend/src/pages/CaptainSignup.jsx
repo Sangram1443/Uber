@@ -1,6 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
-
+import { useState, useContext } from "react";
+import { CaptainDataContext } from "../context/CaptainContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const CaptainSignup = () => {
 	const [formData, setFormData] = useState({
 		firstname: "",
@@ -14,7 +16,8 @@ const CaptainSignup = () => {
 		passengerCapacity: "",
 		numberPlate: "",
 	});
-
+	const navigate = useNavigate();
+	const { captain, setCaptain } = useContext(CaptainDataContext);
 	const handleChange = (e) => {
 		setFormData({
 			...formData,
@@ -30,7 +33,49 @@ const CaptainSignup = () => {
 			return;
 		}
 		setError("");
-		console.log(formData);
+
+		const newCaptain = {
+			fullname: {
+				firstname: formData.firstname,
+				lastname: formData.lastname,
+			},
+			email: formData.email,
+			password: formData.password,
+			phone: formData.phone,
+			vehicleType: formData.vehicleType,
+			vehicleColor: formData.vehicleColor,
+			passengerCapacity: formData.passengerCapacity,
+			numberPlate: formData.numberPlate,
+		};
+
+		try {
+			const response = await axios.post(
+				`${import.meta.env.VITE_BASE_URL}/captains/register`,
+				newCaptain
+			);
+			if (response.status === 200) {
+				const data = response.data;
+				setCaptain(data.captain);
+				localStorage.setItem("token", data.token);
+				navigate("/captain-home");
+			} else {
+				setError(error.response?.data?.message || "An error occurred");
+			}
+		} catch (error) {
+			setError(error.response?.data?.message || "An error occurred");
+		}
+		setFormData({
+			firstname: "",
+			lastname: "",
+			email: "",
+			password: "",
+			confirmPassword: "",
+			phone: "",
+			vehicleType: "",
+			vehicleColor: "",
+			passengerCapacity: "",
+			numberPlate: "",
+		});
 	};
 
 	return (
@@ -102,8 +147,8 @@ const CaptainSignup = () => {
 								type="radio"
 								id="auto"
 								name="vehicleType"
-								value="Auto"
-								checked={formData.vehicleType === "Auto"}
+								value="auto"
+								checked={formData.vehicleType === "auto"}
 								onChange={handleChange}
 							/>
 							<label htmlFor="auto">Auto</label>
@@ -113,8 +158,8 @@ const CaptainSignup = () => {
 								type="radio"
 								id="bike"
 								name="vehicleType"
-								value="Bike"
-								checked={formData.vehicleType === "Bike"}
+								value="bike"
+								checked={formData.vehicleType === "bike"}
 								onChange={handleChange}
 							/>
 							<label htmlFor="bike">Bike</label>
@@ -124,8 +169,8 @@ const CaptainSignup = () => {
 								type="radio"
 								id="car"
 								name="vehicleType"
-								value="Car"
-								checked={formData.vehicleType === "Car"}
+								value="car"
+								checked={formData.vehicleType === "car"}
 								onChange={handleChange}
 							/>
 							<label htmlFor="car">Car</label>
