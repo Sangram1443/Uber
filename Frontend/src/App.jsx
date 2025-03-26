@@ -12,6 +12,7 @@ import CaptainHome from "./pages/CaptainHome";
 import { UserDataContext } from "./context/UserContext";
 import UserProtectWrapper from "./context/UserProtectWrapper";
 import CaptainProtectWrapper from "./context/CaptainProtectWrapper";
+import Riding from "./pages/Riding";
 
 const App = () => {
 	const user = useContext(UserDataContext);
@@ -37,7 +38,7 @@ const App = () => {
 						</UserProtectWrapper>
 					}
 				/>
-
+				<Route path="/riding" element={<Riding />} />
 				<Route path="/captain-login" element={<CaptainLogin />} />
 				<Route path="/captain-signup" element={<CaptainSignup />} />
 				<Route
