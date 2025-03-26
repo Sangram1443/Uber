@@ -78,7 +78,7 @@ const UserHome = () => {
 					<LocationSearchPanel />
 				</div>
 			</div>
-			<div className="bg-white w-full fixed bottom-0 flex flex-col justify-between p-2 gap-3 translate-y-full">
+			<div className="bg-white w-full fixed  bottom-0 flex flex-col justify-between p-2 gap-3  transform translate-y-full">
 				<h3 className="font-semibold text-2xl mb-2">Choose your Ride</h3>
 				<div className="flex py-3 px-2 justify-between border-2 active:border-black rounded-xl">
 					<img
@@ -95,9 +95,7 @@ const UserHome = () => {
 							Affordable, compact rides
 						</span>
 					</div>
-					<div className="text-2xl font-bold">
-						193₹
-					</div>
+					<div className="text-2xl font-bold">193₹</div>
 				</div>
 				<div className="flex py-3 px-2 justify-between border-2 active:border-black rounded-xl">
 					<img
@@ -114,9 +112,7 @@ const UserHome = () => {
 							Affordable, compact rides
 						</span>
 					</div>
-					<div className="text-2xl font-bold">
-						193₹
-					</div>
+					<div className="text-2xl font-bold">68₹</div>
 				</div>
 				<div className="flex py-3 px-2 justify-between border-2 active:border-black rounded-xl">
 					<img
@@ -133,9 +129,7 @@ const UserHome = () => {
 							Affordable, compact rides
 						</span>
 					</div>
-					<div className="text-2xl font-bold">
-						193₹
-					</div>
+					<div className="text-2xl font-bold">110₹</div>
 				</div>
 			</div>
 		</div>
